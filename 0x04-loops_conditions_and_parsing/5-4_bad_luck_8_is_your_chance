@@ -6,14 +6,14 @@ count=0
 
 while [ $count -lt 10 ]
 do
-  if [ $count -eq  ]
+  if [ $count -eq 3 ]
   then
     echo "bad luck"
-  elif
+  elif [ $count -eq 8 ]
   then
     echo "good luck"
-else
+  else
     echo "Best School"
   fi
-    (( count++ ))
+  (( count++ ))
 done
