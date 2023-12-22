@@ -8,7 +8,7 @@ do
   if [ $c -eq 10 ]
   then
 	echo "Hi"
-  fi	
+  fi
   echo "Best School"
   (( c++ ))
 done
