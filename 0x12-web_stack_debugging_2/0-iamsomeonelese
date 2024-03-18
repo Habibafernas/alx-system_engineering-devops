@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#give another user the ability to run whoami command as the root.
+
+sudo -u "$1" whoami
