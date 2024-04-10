@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""parses the title of all hot articles, and prints a sorted count of given keywords"""
+""" raddit api"""
 
 import json
 import requests
 
 
-def count_words(subreddit, word_list):
-    """count"""
+def count_words(subreddit, word_list, after="", count=[]):
+    """count all words"""
 
     if after == "":
         count = [0] * len(word_list)
@@ -16,6 +16,7 @@ def count_words(subreddit, word_list):
                            params={'after': after},
                            allow_redirects=False,
                            headers={'user-agent': 'bhalut'})
+
     if request.status_code == 200:
         data = request.json()
 
@@ -24,6 +25,7 @@ def count_words(subreddit, word_list):
                 for i in range(len(word_list)):
                     if word_list[i].lower() == word.lower():
                         count[i] += 1
+
         after = data['data']['after']
         if after is None:
             save = []
