@@ -16,4 +16,11 @@ def top_ten(subreddit):
     }
     response = requests.get(url, headers=headers, params=params)
     results = response.json()
-    [print(c.get("data").get("title")) for c in results.get("children")]
+    try:
+        my_data = results.get('data').get('children')
+
+        for i in my_data:
+            print(i.get('data').get('title'))
+
+    except Exception:
+        print("None")
