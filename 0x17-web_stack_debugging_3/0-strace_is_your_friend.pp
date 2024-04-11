@@ -1,8 +1,10 @@
-#this file is to solve the problem of the server
+# A puppet manuscript to replace a line in a file on a server
 
-$file = '/var/www/html/wordpress/wp-settings.php'
+$file_to_edit = '/var/www/html/wordpress/wp-settings.php'
+
+#replace line containing "phpp" with "php"
 
 exec { 'replace_line':
-  command => "sed -i 's/phpp/php/g' ${file}",
-  path => ['/bin', '/usr/bin']
+  command => "sed -i 's/phpp/php/g' ${file_to_edit}",
+  path    => ['/bin','/usr/bin']
 }
